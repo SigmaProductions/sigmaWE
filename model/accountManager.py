@@ -10,7 +10,15 @@ class AccountManager:
         tempDict = {accountToAdd.email: accountToAdd}
         self.Accounts.update(tempDict)
 
+    def RemoveAccount(self, email):
+        self.Accounts.pop(email)
 
+    def GetAccount(self, email):
+        return self.Accounts[email]
+
+    def AddMultipleAccounts(self, AccountsToLoad):
+        for key, value in AccountsToLoad.items():
+            self.AddAccount(key, value)
 
 
 
