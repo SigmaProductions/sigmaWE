@@ -7,7 +7,7 @@ class AccountManager:
 
     def AddAccount(self, email, password):
         accountToAdd = account.Account(email, password)
-        tempDict = {accountToAdd.email: accountToAdd}
+        tempDict = {accountToAdd.Email: accountToAdd}
         self.Accounts.update(tempDict)
 
     def RemoveAccount(self, email):
