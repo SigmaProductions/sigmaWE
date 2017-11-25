@@ -1,12 +1,13 @@
 import threading
-from model import account
-class Action:
 
-    def __init__(self, accPtr, module):
+class Action:
+    def __init__(self, accPtr, module,kwargs):
         self.AccPtr = accPtr
         self.LoadedModule = module
-        self.actionThread=threading.Thread(target=self.LoadedModule.test,kwargs={"email": self.AccPtr.Email,
-                                                                        "password": self.AccPtr.Password})
+        self.Kwargs=kwargs
+        self.actionThread=threading.Thread(target=self.LoadedModule.behaviourClass,kwargs={"email": self.AccPtr.Email,
+                                                                                "password": self.AccPtr.Password,
+                                                                                "kwargs":self.Kwargs})
 
     def Run(self):
         self.actionThread.start()
