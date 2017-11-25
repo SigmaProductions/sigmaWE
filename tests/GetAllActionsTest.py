@@ -1,5 +1,5 @@
 from model import actionsManager
-
+from model import accountManager
 from model import modulesManager
 from model import account
 
@@ -9,12 +9,11 @@ secondAccount = account.Account("email1", "haslo1")
 am = actionsManager.Actions()
 
 modulesMan= modulesManager.moduleManager()
-modulesMan.loadModules(["hydra"])
-hydrModule= modulesMan.getModule("hydra")
+modulesMan.loadModules(["mention"])
+hydrModule= modulesMan.getModule("mention")
 
 modulesMan.loadModules(["autoBirths"])
 birthModule=modulesMan.getModule("autoBirths")
-
 
 am.AddAction(firstAccount, hydrModule,{"CONFID":"1668412989883731"})
 am.AddAction(firstAccount, birthModule, {})

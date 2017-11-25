@@ -2,6 +2,7 @@ import threading
 
 class Action:
     def __init__(self, accPtr, module,kwargs):
+
         self.AccPtr = accPtr
         self.LoadedModule = module
         self.Kwargs=kwargs
@@ -11,6 +12,10 @@ class Action:
 
     def Run(self):
         self.actionThread.start()
+
+
+    def Stop(self):
+        self.actionThread._stop()
 
 
 

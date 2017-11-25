@@ -11,6 +11,11 @@ class Actions:
         self.ListOfActions.append(ActionToActivate)
         ActionToActivate.Run()
 
+    def StopAction(self, email, module):
+        for index, member in enumerate(self.ListOfActions):
+            if((member.AccPtr.Email == email) & (member.AccPtr.LoadedModule == module )):
+                member.Stop()
+
     def GetAction(self, id):
         return self.ListOfActions[id]
 
@@ -23,5 +28,6 @@ class Actions:
 
         return acctionsToReturn
 
-
+    def GetAllActions(self):
+        return self.ListOfActions
 
