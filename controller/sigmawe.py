@@ -15,8 +15,8 @@ class SigmaWE:
         users = readUsersFromFile()
         self.AccManager.AddMultipleAccounts(users)
 
-    def AddSingleAccount(self, email, password):
-        self.AccManager.AddAccount(email,password)
+    def AddSingleAccount(self, email, password, toRemember):
+        self.AccManager.AddAccount(email,password, toRemember)
 
     def RemoveSingleAccount(self, email):
         self.AccManager.RemoveAccount(email)

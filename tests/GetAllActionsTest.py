@@ -1,5 +1,5 @@
 from model import actionsManager
-
+from model import accountManager
 from model import modulesManager
 from model import account
 
