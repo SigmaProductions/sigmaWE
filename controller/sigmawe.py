@@ -33,5 +33,8 @@ class SigmaWE:
         self.ActionManager.AddAction(self.AccManager.GetAccount(email), moduleName, kwargs)
     #load all modules
 
+    def DeactivateBehaviour(self, email, module):
+        self.ActionManager.StopAction(email, module)
+
     def LoadModule(self,moduleName):
         self.ModuleManager.loadModules([moduleName])
