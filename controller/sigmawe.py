@@ -64,7 +64,7 @@ class SigmaWE:
             self.AccManager.Accounts = self.Serializer.load("Accounts.dat")
 
     def _loadAllModules(self):
-        for behaviour in os.listdir(self.sigmaPath):
-            self.ModuleManager.loadModules([behaviour])
+        for behaviour in os.listdir(self.sigmaPath+"\\behaviours"):
+            self.ModuleManager.loadModules([behaviour.split(".")[0]])
 
 
