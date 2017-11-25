@@ -20,7 +20,7 @@ class behaviourClass(IBehaviourBase):
             if(not self.addFlag):
                 self.HydraThreads.append(threading.Thread(target=self.addingLoop))
                 self.HydraThreads[-1].start()
-            self.addFlag =True
+            self.addFlag = True
 
 
             #### usuwanie wykomentowanie dla maksymalizacji rozpaczy

@@ -2,8 +2,8 @@ from model.action import Action
 from model.account import Account
 from model import modulesManager
 
-login=
-password=
+login='b'
+password='c'
 
 modulesMan= modulesManager.moduleManager()
 modulesMan.loadModules(["hydra"])
