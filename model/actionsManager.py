@@ -23,5 +23,6 @@ class Actions:
 
         return acctionsToReturn
 
-
+    def GetAllActions(self):
+        return self.ListOfActions
 
