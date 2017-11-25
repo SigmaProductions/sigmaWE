@@ -50,6 +50,13 @@ class SigmaWE:
         self.ActionManager.AddAction(self.AccManager.GetAccount(email), moduleName, kwargs)
 
 
+    def DeactivateBehaviour(self, email, module):
+        self.ActionManager.StopAction(email, module)
+
+    def LoadModule(self,moduleName):
+        self.ModuleManager.loadModules([moduleName])
+
+
 
     ##loaders from pickled files
     def _loadAllAccounts(self):
@@ -59,4 +66,5 @@ class SigmaWE:
     def _loadAllModules(self):
         for behaviour in os.listdir(self.sigmaPath):
             self.ModuleManager.loadModules([behaviour])
+
 
