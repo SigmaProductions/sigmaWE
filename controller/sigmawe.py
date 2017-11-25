@@ -26,6 +26,14 @@ class SigmaWE:
 
 
 
+    def GetAllAccounts(self):
+        self.AccManager.GetAllAccounts()
+
+    def GetAllActions(self):
+        self.ActionManager.GetAllActions()
+
+    def GetAllModules(self):
+        self.ModuleManager.GetAllModules()
 
     def AddAcountsFromFile(self):
         users = readUsersFromFile()
@@ -55,7 +63,6 @@ class SigmaWE:
 
     #def GetAllModules(self):
        # self.ModuleManager.g
-
     #load all modules
 
     def LoadModule(self,moduleName):
