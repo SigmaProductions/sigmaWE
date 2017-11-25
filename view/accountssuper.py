@@ -1,4 +1,5 @@
 import tkinter as tk
+from view import accaddwindow
 class AccountsSuperview(tk.Frame):
     def __init__(self,master):
         super().__init__(master)
@@ -14,7 +15,13 @@ class AccountsSuperview(tk.Frame):
         self.removeAccountButton = tk.Button(self, text="Remove")
         self.removeAccountButton.grid(column=1, row=1,pady=2,padx=5,sticky= tk.N)
 
+        self.callbackAddWindow=None
+
+
     def spawnAddAccountWindow(self):
-        AddAccountWindow=tk.Toplevel(self)
-        addAccountLabel= tk.Label(AddAccountWindow,text="add new account")
-        addAccountLabel.pack()
+        AddAccountWindowRoot = tk.Toplevel(self)
+        self.AddAccountWnd = accaddwindow.AccountAddWindow(AddAccountWindowRoot)
+        self.AddAccountWnd.pack()
+        self.AddAccountWnd.OkButtonCallback=self.callbackAddWindow
+    def addBindingToAccWndOK(self,callback):
+        self.callbackAddWindow=callback

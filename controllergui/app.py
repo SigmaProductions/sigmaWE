@@ -18,5 +18,5 @@ class App:
         """binds events to event handler"""
 
         self.viewClient.accountsSuperView.addAccountButton.bind("<ButtonRelease>",self.eventClient.addAccount)
-
+        self.viewClient.accountsSuperView.addBindingToAccWndOK(self.eventClient.okAddAccount)
 
