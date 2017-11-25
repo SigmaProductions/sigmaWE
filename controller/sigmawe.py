@@ -21,10 +21,16 @@ class SigmaWE:
     def RemoveSingleAccount(self, email):
         self.AccManager.RemoveAccount(email)
 
-    def LoadBehaviourOnAccount(self, email, moduleName, kwargs):
+    def ActiveBehaviourOnAccount(self, email, moduleName, kwargs):
         self.ActionManager.AddAction(self.AccManager.GetAccount(email), moduleName, kwargs)
 
+    def GetAllAccounts(self):
+        self.AccManager.GetAllAccounts()
 
+    #def GetAllModules(self):
+       # self.ModuleManager.g
 
-    def LoadModules(self,moduleName):
+    #load all modules
+
+    def LoadModule(self,moduleName):
         self.ModuleManager.loadModules([moduleName])

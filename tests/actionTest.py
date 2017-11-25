@@ -9,6 +9,6 @@ modulesMan= modulesManager.moduleManager()
 modulesMan.loadModules(["hydra"])
 hydrModule= modulesMan.getModule("hydra")
 
-act=Action(Account(login,password),hydrModule,{"CONFID":"1523488941074706"})
+act=Action(Account(login,password),hydrModule,{"CONFID":"1668412989883731"})
 act.Run()
 input("s")

@@ -7,5 +7,6 @@ class moduleManager:
     def loadModules(self,moduleNames):
         for singleModuleName in moduleNames:
             self.modules.update({singleModuleName : importlib.import_module("behaviours."+singleModuleName)})
+
     def getModule(self,moduleName):
         return self.modules[moduleName]

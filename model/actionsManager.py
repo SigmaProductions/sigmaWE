@@ -14,3 +14,14 @@ class Actions:
     def GetAction(self, id):
         return self.ListOfActions[id]
 
+    def GetAllActionsRunnedOnAccount(self, email):
+        acctionsToReturn = []
+        for index, member in enumerate(self.ListOfActions):
+            if(member.AccPtr.Email == email):
+                acctionsToReturn.append(member)
+
+
+        return acctionsToReturn
+
+
+
