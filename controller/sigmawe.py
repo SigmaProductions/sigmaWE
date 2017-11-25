@@ -11,6 +11,7 @@ class SigmaWE:
         self.sigmaPath= os.path.abspath(__file__).split("sigmaWE")[0] + "sigmaWE\\"
         self.Serializer = helperSerializer(self.sigmaPath)
 
+
         ##create acc manager and load data form file if exists
         self.AccManager = accountManager.AccountManager()
         self._loadAllAccounts()
@@ -20,9 +21,19 @@ class SigmaWE:
 
         self.ActionManager = actionsManager.Actions()
 
+    def GetAllAccounts(self):
+        self.AccManager.GetAllAccounts()
 
-    def AddSingleAccount(self, email, password):
-        self.AccManager.AddAccount(email,password)
+    def GetAllActions(self):
+        self.ActionManager.GetAllActions()
+
+    def GetAllModules(self):
+        self.ModuleManager.GetAllModules()
+
+
+
+    def AddSingleAccount(self, email, password, toRemember):
+        self.AccManager.AddAccount(email,password, toRemember)
 
     def RemoveSingleAccount(self, email):
         self.AccManager.RemoveAccount(email)
@@ -30,8 +41,6 @@ class SigmaWE:
     def ActiveBehaviourOnAccount(self, email, moduleName, kwargs):
         self.ActionManager.AddAction(self.AccManager.GetAccount(email), moduleName, kwargs)
 
-    def GetAllAccounts(self):
-        self.AccManager.GetAllAccounts()
 
 
     ##loaders from pickled files

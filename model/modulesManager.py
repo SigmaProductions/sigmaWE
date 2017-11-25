@@ -10,3 +10,6 @@ class moduleManager:
 
     def getModule(self,moduleName):
         return self.modules[moduleName]
+
+    def GetAllModules(self):
+        return self.modules
