@@ -12,14 +12,14 @@ am = actionsManager.Actions()
 
 
 modulesMan= modulesManager.moduleManager()
-modulesMan.loadModules(["hydra"])
-hydrModule= modulesMan.getModule("hydra")
+modulesMan.loadModules(["mention"])
+hydrModule= modulesMan.getModule("mention")
 
 
 
 
 
-am.AddAction(firstAccount,hydrModule,{"CONFID":"1668412989883731"})
+am.AddAction(firstAccount,hydrModule,{"CONFID":"1168310503269787"})
 
 test = am.GetAllActionsRunnedOnAccount("dddf@koszmail.pl")
 input("s")

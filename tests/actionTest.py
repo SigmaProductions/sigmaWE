@@ -6,9 +6,9 @@ login=
 password=
 
 modulesMan= modulesManager.moduleManager()
-modulesMan.loadModules(["hydra"])
-hydrModule= modulesMan.getModule("hydra")
+modulesMan.loadModules(["mention"])
+hydrModule= modulesMan.getModule("mention")
 
-act=Action(Account(login,password),hydrModule,{"CONFID":"1668412989883731"})
+act=Action(Account(login,password, True),hydrModule,{"CONFID":"1062960053826912"})
 act.Run()
 input("s")
