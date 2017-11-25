@@ -8,6 +8,6 @@ class EventHandler:
         self.viewClient.accountsSuperView.spawnAddAccountWindow()
         print("test")
 
-    def okAddAccount(self,email,password):
-        print (email)
-        print(password)
+    def okAddAccount(self,email,password,save):
+        self.dataClient.AddSingleAccount(email,password,save)
+        self.viewClient.accountsSuperView.showAccounts()

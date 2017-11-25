@@ -4,8 +4,8 @@ class helperSerializer:
         self.path=path
 
     def save(self, fileName, data):
-        file= open(self.path,"wb")
-        pickle.dump(data+fileName,file)
+        file= open(self.path+fileName,"wb")
+        pickle.dump(data,file)
         file.close()
 
     def load(self,fileName):

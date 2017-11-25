@@ -6,5 +6,5 @@ class MasterView(tk.Frame):
 
         self.dataClient= dataController
 
-        self.accountsSuperView= accSuperview.AccountsSuperview(self)
+        self.accountsSuperView= accSuperview.AccountsSuperview(self,self.dataClient)
         self.accountsSuperView.pack()

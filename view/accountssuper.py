@@ -1,9 +1,9 @@
 import tkinter as tk
 from view import accaddwindow
 class AccountsSuperview(tk.Frame):
-    def __init__(self,master):
+    def __init__(self,master, data):
         super().__init__(master)
-
+        self.dataManager=data
         self.accountListBox= tk.Listbox(self)
         self.accountListBox.insert(1,"adsfas")
         self.accountListBox.insert(2, "adsfas")
@@ -17,6 +17,14 @@ class AccountsSuperview(tk.Frame):
 
         self.callbackAddWindow=None
 
+        self.showAccounts()
+
+    def showAccounts(self):
+        self.accountListBox.delete(0,tk.END)
+        if(self.dataManager.GetAllAccounts()==None):
+            return
+        for key in self.dataManager.GetAllAccounts():
+            self.accountListBox.insert(tk.END, key)
 
     def spawnAddAccountWindow(self):
         AddAccountWindowRoot = tk.Toplevel(self)
