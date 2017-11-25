@@ -22,19 +22,20 @@ class SigmaWE:
         self.ActionManager = actionsManager.Actions()
 
     def GetAllAccounts(self):
-        self.AccManager.GetAllAccounts()
+        return self.AccManager.GetAllAccounts()
 
     def GetAllActions(self):
-        self.ActionManager.GetAllActions()
+        return self.ActionManager.GetAllActions()
 
     def GetAllModules(self):
-        self.ModuleManager.GetAllModules()
+        return self.ModuleManager.GetAllModules()
 
 
 
     def AddSingleAccount(self, email, password, toRemember):
-        if(not toRemember):
-            self.AccManager.AddAccount(email,password)
+        self.AccManager.AddAccount(email, password, toRemember)
+        if(toRemember==0):
+            return
 
         data={}
         ##iterate through accounts find ones with to remember flag and save them into data
@@ -64,7 +65,7 @@ class SigmaWE:
             self.AccManager.Accounts = self.Serializer.load("Accounts.dat")
 
     def _loadAllModules(self):
-        for behaviour in os.listdir(self.sigmaPath):
-            self.ModuleManager.loadModules([behaviour])
+        for behaviour in os.listdir(self.sigmaPath+"\\behaviours"):
+            self.ModuleManager.loadModules([behaviour.split(".")[0]])
 
 
