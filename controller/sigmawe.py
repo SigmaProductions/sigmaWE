@@ -10,26 +10,27 @@ class SigmaWE:
         self.ModuleManager=None
         self.ActionManager = actionM.Actions()
 
+    def GetAllAccounts(self):
+        self.AccManager.GetAllAccounts()
+
+    def GetAllActions(self):
+        self.ActionManager.GetAllActions()
+
+    def GetAllModules(self):
+        self.ModuleManager.GetAllModules()
 
     def AddAcountsFromFile(self):
         users = readUsersFromFile()
         self.AccManager.AddMultipleAccounts(users)
 
-    def AddSingleAccount(self, email, password):
-        self.AccManager.AddAccount(email,password)
+    def AddSingleAccount(self, email, password, toRemember):
+        self.AccManager.AddAccount(email,password, toRemember)
 
     def RemoveSingleAccount(self, email):
         self.AccManager.RemoveAccount(email)
 
     def ActiveBehaviourOnAccount(self, email, moduleName, kwargs):
         self.ActionManager.AddAction(self.AccManager.GetAccount(email), moduleName, kwargs)
-
-    def GetAllAccounts(self):
-        self.AccManager.GetAllAccounts()
-
-    #def GetAllModules(self):
-       # self.ModuleManager.g
-
     #load all modules
 
     def LoadModule(self,moduleName):

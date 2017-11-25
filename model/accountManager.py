@@ -5,8 +5,8 @@ class AccountManager:
     def __init__(self):
         self.Accounts = {}
 
-    def AddAccount(self, email, password):
-        accountToAdd = account.Account(email, password)
+    def AddAccount(self, email, password, toRemember):
+        accountToAdd = account.Account(email, password, toRemember)
         tempDict = {accountToAdd.Email: accountToAdd}
         self.Accounts.update(tempDict)
 
@@ -23,5 +23,13 @@ class AccountManager:
         for key, value in AccountsToLoad.items():
             self.AddAccount(key, value)
 
+    def _GetAccountsToRemember(self):
+        accountsToRemember = []
+        for key, value in self.Accounts.items():
+            if(value.ToRemember == True):
+                accountsToRemember.append(value)
+
+
+        return accountsToRemember
 
 
