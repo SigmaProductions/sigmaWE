@@ -1,19 +1,25 @@
-from helper.readUsersFromFile import readUsersFromFile
-from model import accountManager as am
-from model import actionsManager as actionM
 
+from model import accountManager
+from model import actionsManager
+from model import modulesManager
+from controller.serializer import helperSerializer
+import os
 
 class SigmaWE:
 
     def __init__(self):
-        self.AccManager = am.AccountManager()
-        self.ModuleManager=None
-        self.ActionManager = actionM.Actions()
+        self.sigmaPath= os.path.abspath(__file__).split("sigmaWE")[0] + "sigmaWE\\"
+        self.Serializer = helperSerializer(self.sigmaPath)
 
+        ##create acc manager and load data form file if exists
+        self.AccManager = accountManager.AccountManager()
+        self._loadAllAccounts()
 
-    def AddAcountsFromFile(self):
-        users = readUsersFromFile()
-        self.AccManager.AddMultipleAccounts(users)
+        self.ModuleManager= modulesManager.moduleManager()
+        self._loadAllModules()
+
+        self.ActionManager = actionsManager.Actions()
+
 
     def AddSingleAccount(self, email, password):
         self.AccManager.AddAccount(email,password)
@@ -27,10 +33,13 @@ class SigmaWE:
     def GetAllAccounts(self):
         self.AccManager.GetAllAccounts()
 
-    #def GetAllModules(self):
-       # self.ModuleManager.g
 
-    #load all modules
+    ##loaders from pickled files
+    def _loadAllAccounts(self):
+        if (os.path.isfile(self.Serializer.path + "Accounts.dat")):
+            self.AccManager.Accounts = self.Serializer.load("Accounts.dat")
 
-    def LoadModule(self,moduleName):
-        self.ModuleManager.loadModules([moduleName])
+    def _loadAllModules(self):
+        for behaviour in os.listdir(self.sigmaPath):
+            self.ModuleManager.loadModules([behaviour])
+
