@@ -16,6 +16,9 @@ class AccountManager:
     def GetAccount(self, email):
         return self.Accounts[email]
 
+    def GetAllAccounts(self):
+        return self.Accounts
+
     def AddMultipleAccounts(self, AccountsToLoad):
         for key, value in AccountsToLoad.items():
             self.AddAccount(key, value)
