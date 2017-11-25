@@ -5,8 +5,6 @@ class AccountsSuperview(tk.Frame):
         super().__init__(master)
         self.dataManager=data
         self.accountListBox= tk.Listbox(self)
-        self.accountListBox.insert(1,"adsfas")
-        self.accountListBox.insert(2, "adsfas")
         self.accountListBox.grid(column=0, rowspan=2)
 
         self.addAccountButton= tk.Button(self,text="Add")
