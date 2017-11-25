@@ -3,14 +3,14 @@ class helperSerializer:
     def __init__(self, path):
         self.path=path
 
-    def save(self, dataName, data):
+    def save(self, fileName, data):
         file= open(self.path,"wb")
-        pickle.dump(data+dataName,file)
+        pickle.dump(data+fileName,file)
         file.close()
 
-    def load(self,dataName):
+    def load(self,fileName):
 
-        file= open(self.path+dataName,"rb")
+        file= open(self.path+fileName,"rb")
         data=pickle.load(file)
         file.close()
 

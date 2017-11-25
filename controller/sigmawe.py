@@ -33,7 +33,15 @@ class SigmaWE:
 
 
     def AddSingleAccount(self, email, password, toRemember):
-        self.AccManager.AddAccount(email,password, toRemember)
+        if(not toRemember):
+            self.AccManager.AddAccount(email,password)
+
+        data={}
+        ##iterate through accounts find ones with to remember flag and save them into data
+        for key in self.AccManager.Accounts:
+            if self.AccManager.GetAccount(key).ToRemember:
+                data.update({key : self.AccManager.GetAccount(key)})
+        self.Serializer.save("Accounts.dat",data)
 
     def RemoveSingleAccount(self, email):
         self.AccManager.RemoveAccount(email)
